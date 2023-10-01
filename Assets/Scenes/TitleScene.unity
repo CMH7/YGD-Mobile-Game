@@ -655,6 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingGroup: {fileID: 858727975}
   loadingFiller: {fileID: 238013726}
+  bulb: {fileID: 839870677}
 --- !u!114 &1886074446
 MonoBehaviour:
   m_ObjectHideFlags: 0

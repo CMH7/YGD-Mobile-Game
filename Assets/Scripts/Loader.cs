@@ -6,6 +6,7 @@ public class Loader : MonoBehaviour
 {
     public GameObject loadingGroup;
     public GameObject loadingFiller;
+    public GameObject bulb;
     private Vector3 loadingGroupOriginalScale;
     private Vector3 loadingGroupScaleTo;
 
@@ -20,7 +21,7 @@ public class Loader : MonoBehaviour
         // set the scale to 0
         loadingGroup.transform.localScale = new Vector3(0, 0, 0);
 
-        ScaleUp();
+        OpacityUp();
     }
 
     private void ScaleUp()
@@ -48,4 +49,15 @@ public class Loader : MonoBehaviour
             .SetLoops(1, LoopType.Incremental);
     }
 
+    private void OpacityUp()
+    {
+        Color origColor = bulb.GetComponent<Image>().color;
+
+        bulb.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+
+        bulb.GetComponent<Image>().DOColor(origColor, 0.5f)
+            .SetEase(Ease.InOutSine)
+            .OnComplete(ScaleUp);
+
+    }
 }
