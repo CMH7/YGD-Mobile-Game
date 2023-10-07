@@ -34,7 +34,7 @@ public class GameHandlerScript : MonoBehaviour
     }
 
 
-    public static void loadProfiles() //called after the menu animation is complete.
+    public static void loadProfiles() //called after the menu animation is complete..
     {
         if (System.IO.File.Exists(path))
         {
