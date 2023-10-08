@@ -275,9 +275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SignupPanel: {fileID: 1584735807}
   username: {fileID: 2132511668}
-  usersContainer:
-    students: []
-  path: Assets/users.json
 --- !u!4 &36708549
 Transform:
   m_ObjectHideFlags: 0
@@ -801,6 +798,7 @@ GameObject:
   - component: {fileID: 332117118}
   - component: {fileID: 332117119}
   - component: {fileID: 332117120}
+  - component: {fileID: 332117121}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -938,12 +936,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosY: 1500
+  canvas: {fileID: 0}
   logo: {fileID: 494685143}
   sublogo: {fileID: 0}
   profile: {fileID: 510572254}
   actionButtons: {fileID: 1012335264}
   bgPattern: {fileID: 498549434}
-  signupPanel: {fileID: 1584735807}
   menuButtons:
   - {fileID: 1049090450}
   - {fileID: 233830918}
@@ -961,6 +959,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &332117121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332117113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58cf9d3084815a4fa013322e75d058f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343157979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,7 +4656,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890003856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 332117121}
+        m_TargetAssemblyTypeName: NewBehaviourScript1, Assembly-CSharp
+        m_MethodName: GoToSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1890003856
 MonoBehaviour:
   m_ObjectHideFlags: 0
