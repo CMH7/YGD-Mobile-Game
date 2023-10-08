@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Loader : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Loader : MonoBehaviour
     public GameObject bulb;
     private Vector3 loadingGroupOriginalScale;
     private Vector3 loadingGroupScaleTo;
+    //10-8-2023 : CM : Commented : For future use
+    //private AsyncOperation loadingOperation;
+
+    private 
 
     void Start()
     {
@@ -38,15 +43,33 @@ public class Loader : MonoBehaviour
             .SetEase(Ease.InOutSine)
             .SetLoops(1, LoopType.Yoyo)
             .OnComplete(FillUp);
+
+        //10-8-2023 : CM : Commented : For future use
+        //loadingOperation = SceneManager.LoadSceneAsync("SampleScene");
     }
 
     private void FillUp()
     {
+        
         loadingFiller.GetComponent<Image>().fillAmount = 0;
 
+        //10-8-2023 : CM : Commented : For future use
+        //loadingFiller.GetComponent<Image>().DOFillAmount(loadingOperation.progress, 1f)
         loadingFiller.GetComponent<Image>().DOFillAmount(100f, 1f)
             .SetEase(Ease.InOutSine)
-            .SetLoops(1, LoopType.Incremental);
+            .SetLoops(1, LoopType.Incremental)
+            .OnComplete(() =>
+            {
+                // 10-8-2023 : CM : Commented|Explain : for future use of async loading
+                //if(!loadingOperation.isDone)
+                //{
+                //    FillUp();
+                //}
+                //else
+                //{
+                    SceneManager.LoadScene(1);
+                //}
+            });
     }
 
     private void OpacityUp()
